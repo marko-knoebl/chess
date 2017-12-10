@@ -39,3 +39,7 @@ positioned within the field */
 .piece.active {
   color: yellow;
 }
+
+.piece.out {
+  display: none;
+}
