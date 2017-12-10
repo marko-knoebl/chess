@@ -26,12 +26,22 @@ export class ChessboardComponent implements OnInit {
   ngOnInit() {
   }
 
-  onClick(i, j) {
-    if (!this.game.activePiece) {
-      this.game.activePiece = this.game.getPieceByPosition([i, j]);
-    } else {
-      this.game.move(this.game.activePiece, [i, j]);
+  onClick(position: [number, number]) {
+    let clickedPiece;
+    try {
+      clickedPiece = this.game.getPieceByPosition(position);
+    } catch (e) {
+      // clicked on empty spot - try to move there if there is an active piece
+      if (this.game.activePiece) {
+        this.game.move(this.game.activePiece, position);
+      }
+      return;
+    }
+    // clicked on a piece
+    if (clickedPiece.color === this.game.activePlayer) {
+      this.game.activatePiece(clickedPiece);
+    } else if (this.game.activePiece) {
+      this.game.move(this.game.activePiece, position);
     }
   }
-
 }

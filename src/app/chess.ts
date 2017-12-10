@@ -64,7 +64,24 @@ export class ChessGame {
     }
   }
 
-  getPieceByPosition(position) {
+  otherPlayer(color) {
+    if (color === 'white') {
+      return 'black';
+    } else if (color === 'black') {
+      return 'white';
+    } else {
+      throw 'must specify white or black';
+    }
+  }
+
+  activatePiece(piece) {
+    if (piece.color !== this.activePlayer) {
+      throw 'cannot activate piece of other color';
+    }
+    this.activePiece = piece;
+  }
+
+  getPieceByPosition(position): Piece {
     for (let piece of this.pieces) {
       if (vectorEqual(position, piece.position)) {
         return piece;
@@ -157,9 +174,9 @@ export class ChessGame {
           return this.isPositionFree(target);
         } else if (piece.color === 'black' && moveVector[1] === -1) {
           return this.isPositionFree(target);
-        } else if (piece.color === 'white' && moveVector[1] === 2) {
+        } else if (piece.color === 'white' && moveVector[1] === 2 && piece.position[1] === 1) {
           return this.canMoveStraight(piece.position, target) && this.isPositionFree(target);
-        } else if (piece.color === 'black' && moveVector[1] === -2) {
+        } else if (piece.color === 'black' && moveVector[1] === -2 && piece.position[1] === 6) {
           return this.canMoveStraight(piece.position, target) && this.isPositionFree(target);
         } else {
           return false;
@@ -217,6 +234,7 @@ export class ChessGame {
     }
     this.capture(target);
     piece.position = target.slice();
+    this.activePlayer = this.otherPlayer(this.activePlayer);
     this.activePiece = null;
   }
 

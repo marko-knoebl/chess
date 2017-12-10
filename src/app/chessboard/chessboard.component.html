@@ -13,7 +13,7 @@
 </div>
 <div class="layer-clickable">
   <div *ngFor="let column of squareColors; index as i" class="column">
-    <div *ngFor="let color of column; index as j" class="square" (click)="onClick(i, j)">
+    <div *ngFor="let color of column; index as j" class="square" (click)="onClick([i, j])">
 
     </div>
   </div>
