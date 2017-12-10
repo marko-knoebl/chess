@@ -37,6 +37,7 @@ export class ChessGame {
 
   activePlayer: string;
   pieces: Piece[];
+  activePiece: Piece;
 
   constructor() {
 
@@ -44,17 +45,17 @@ export class ChessGame {
     this.pieces = [];
 
     let backRow = ['rook', 'knight', 'bishop', 'queen', 'king', 'bishop', 'knight', 'rook'];
-    for (let i = 0; i < 8; i ++) {
+    for (let i = 0; i < 8; i++) {
       this.pieces.push(new Piece('white', backRow[i], [i, 0], i));
     }
-    for (let i = 0; i < 8; i ++) {
-      this.pieces.push(new Piece('white', 'pawn', [i, 1], i+8));
+    for (let i = 0; i < 8; i++) {
+      this.pieces.push(new Piece('white', 'pawn', [i, 1], i + 8));
     }
-    for (let i = 0; i < 8; i ++) {
-      this.pieces.push(new Piece('black', backRow[i], [i, 7], i+16));
+    for (let i = 0; i < 8; i++) {
+      this.pieces.push(new Piece('black', backRow[i], [i, 7], i + 16));
     }
-    for (let i = 0; i < 8; i ++) {
-      this.pieces.push(new Piece('black', 'pawn', [i, 6], i+24))
+    for (let i = 0; i < 8; i++) {
+      this.pieces.push(new Piece('black', 'pawn', [i, 6], i + 24))
     }
   }
 
@@ -139,9 +140,9 @@ export class ChessGame {
         return false;
       }
       let vectorLength = moveVector[0] + moveVector[1];
-      let unitVector = [moveVector[0]/vectorLength, moveVector[1]/vectorLength];
+      let unitVector = [moveVector[0] / vectorLength, moveVector[1] / vectorLength];
       let tryPosition = piece.position.slice();
-      for (let steps = 1; steps < vectorLength; steps ++) {
+      for (let steps = 1; steps < vectorLength; steps++) {
         tryPosition = vectorAdd(tryPosition, unitVector)
         if (!this.isPositionFree(tryPosition)) {
           return false;
@@ -161,6 +162,14 @@ export class ChessGame {
       throw 'invalid move';
     }
     piece.position = target.slice();
+    this.activePiece = null;
+  }
+
+  isPieceActive(piece) {
+    return (
+      this.activePiece &&
+      this.activePiece.position[0] === piece.position[0] &&
+      this.activePiece.position[1] === piece.position[1]);
   }
 }
 
@@ -183,13 +192,13 @@ class Piece {
     let moveVector = [target[0] - this.position[0], target[1] - this.position[1]];
 
     if (vectorEqual(moveVector, [1, 0])) {
-      
+
     }
 
     if (this.type === 'pawn' && this.color === 'white') {
       // same column
       if (this.position[0] === target[0]) {
-        if (this.position[1]+1 === target[1]) {
+        if (this.position[1] + 1 === target[1]) {
           return true;
         } else if (this.position[1] === 1 && target[1] === 3) {
           // TODO: check if free

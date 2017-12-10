@@ -1,9 +1,20 @@
 <div class="layer-pattern">
-  <div *ngFor="let col of squareColors" class="column">
-    <div *ngFor="let color of col" class="square" [class.black]="color === 'black'">
+  <div *ngFor="let column of squareColors" class="column">
+    <div *ngFor="let color of column" class="square" [class.black]="color === 'black'">
     </div>
   </div>
 </div>
 <div class="layer-pieces">
-  <piece *ngFor="let piece of game.pieces" [piece]="piece"></piece>
+  <piece
+    *ngFor="let piece of game.pieces"
+    [piece]="piece"
+    [active]="game.isPieceActive(piece)">
+  </piece>
+</div>
+<div class="layer-clickable">
+  <div *ngFor="let column of squareColors; index as i" class="column">
+    <div *ngFor="let color of column; index as j" class="square" (click)="onClick(i, j)">
+
+    </div>
+  </div>
 </div>

@@ -35,3 +35,7 @@ positioned within the field */
   background-color: white;
   color: black;
 }
+
+.piece.active {
+  color: yellow;
+}

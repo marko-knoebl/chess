@@ -8,6 +8,7 @@ import { Component, Input, HostBinding, OnInit } from '@angular/core';
 export class PieceComponent implements OnInit {
 
   @Input() piece;
+  @Input() active;
 
   constructor() { }
 

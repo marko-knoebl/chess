@@ -5,13 +5,13 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-.layer-pattern, .layer-pieces {
+.layer-pattern, .layer-pieces, .layer-clickable {
   position: absolute;
   height: 100%;
   width: 100%;
 }
 
-.layer-pattern {
+.layer-pattern, .layer-clickable {
   display: flex;
 }
 
