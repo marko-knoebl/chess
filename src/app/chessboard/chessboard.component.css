@@ -1,0 +1,30 @@
+:host {
+  display: block;
+  box-sizing: border-box;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.layer-pattern, .layer-pieces {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.layer-pattern {
+  display: flex;
+}
+
+.column {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.square {
+  flex-grow: 1;
+}
+
+.square.black {
+  background-color: #444;
+}

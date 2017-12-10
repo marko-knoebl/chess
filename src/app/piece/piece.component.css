@@ -1,0 +1,37 @@
+/* the host element will cover the entire field, the piece is
+positioned within the field */
+:host {
+  position: absolute;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.piece-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 12.5%;
+  width: 12.5%;
+  transition: bottom 1s, left 1s;
+}
+
+.piece {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50%;
+  width: 50%;
+  border-radius: 50%;
+}
+
+.piece.black {
+  background-color: black;
+  color: white;
+}
+
+.piece.white {
+  background-color: white;
+  color: black;
+}
