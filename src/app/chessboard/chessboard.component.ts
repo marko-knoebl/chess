@@ -14,10 +14,10 @@ export class ChessboardComponent implements OnInit {
   @Input() game: ChessGame;
 
   constructor() {
-    for (let c = 0; c < 8; c ++) {
+    for (let c = 0; c < 8; c++) {
       let col = [];
-      for (let r = 0; r < 8; r ++) {
-        col.push((r+c)%2 ? 'black' : 'white');
+      for (let r = 0; r < 8; r++) {
+        col.push((r + c) % 2 ? 'white' : 'black');
       }
       this.squareColors.push(col);
     }
