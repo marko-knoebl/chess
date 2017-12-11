@@ -24,15 +24,18 @@ positioned within the field */
   height: 50%;
   width: 50%;
   border-radius: 50%;
+  font-size: 4.5vmin;
+  box-shadow: 0 0px 1vmin rgba(0, 0, 0, 0.4);
 }
 
 .piece.black {
   background-color: black;
-  color: white;
+  color: #eee;
+  transform: rotate(180deg);
 }
 
 .piece.white {
-  background-color: white;
+  background-color: #eee;
   color: black;
 }
 

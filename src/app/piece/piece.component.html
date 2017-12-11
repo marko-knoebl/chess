@@ -4,6 +4,6 @@
   [style.bottom.%]="piece.position[1]*12.5"
   [style.left.%]="piece.position[0]*12.5">
   <div class="piece" [class.active]="active" [class.black]="piece.color === 'black'" [class.white]="piece.color === 'white'">
-    {{ piece.type }}
+    {{ symbols[piece.type] }}
   </div>
 </div>
