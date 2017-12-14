@@ -1,3 +1,5 @@
 :host {
   display: block;
+  /* prevent scrollbars on Firefox (57) on initial rendering */
+  overflow: hidden;
 }
