@@ -1,3 +1,8 @@
+:host {
+  display: block;
+  perspective: 1000px;
+}
+
 chessboard {
   height: 100vmin;
   width: 100vmin;

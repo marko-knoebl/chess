@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { ChessGame } from '../chess.js';
 
 @Component({
-  selector: 'chess',
-  templateUrl: './chess.component.html',
-  styleUrls: ['./chess.component.css']
+  selector: 'chessgame',
+  templateUrl: './chessgame.component.html',
+  styleUrls: ['./chessgame.component.css']
 })
-export class ChessComponent implements OnInit {
+export class ChessgameComponent implements OnInit {
   game: ChessGame;
 
   constructor() {
@@ -16,4 +16,5 @@ export class ChessComponent implements OnInit {
 
   ngOnInit() {
   }
+
 }
