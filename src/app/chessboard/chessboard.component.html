@@ -5,10 +5,7 @@
   </div>
 </div>
 <div class="layer-pieces">
-  <piece
-    *ngFor="let piece of game.pieces"
-    [piece]="piece"
-    [active]="game.isPieceActive(piece)">
+  <piece *ngFor="let piece of game.pieces" [piece]="piece" [active]="game.isPieceActive(piece)">
   </piece>
 </div>
 <div class="layer-clickable">

@@ -22,3 +22,17 @@ chessboard {
     width: 100vh;
   }
 }
+
+/* container that rotates in order to turn the chessboard;
+1s delay to allow for piece to move first */
+.rotating {
+  transition: transform 2s 1s;
+}
+
+.rotating.white {
+  transform: rotateX(40deg) rotateZ(0deg);
+}
+
+.rotating.black {
+  transform: rotateX(40deg) rotateZ(180deg);
+}

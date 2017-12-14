@@ -3,7 +3,6 @@
   box-sizing: border-box;
   position: relative;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  transform: rotateX(40deg) rotateZ(0deg);
 }
 
 .layer-pattern, .layer-pieces, .layer-clickable {

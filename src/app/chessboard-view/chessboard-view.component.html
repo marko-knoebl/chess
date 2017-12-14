@@ -1,1 +1,3 @@
-<chessboard [game]="game"></chessboard>
+<div class="rotating" [class.white]="game.activePlayer==='white'" [class.black]="game.activePlayer==='black'">
+  <chessboard [game]="game"></chessboard>
+</div>
